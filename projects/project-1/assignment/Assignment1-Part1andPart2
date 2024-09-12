@@ -1,0 +1,95 @@
+Assignment Part 1
+
+1. Functional and Transitive (XNS)
+Explanation:
+
+Suppose R is both functional and transitive. If R is functional If xRy and xRz, then y=z.  If R is transitive, then If xRy and yRz, then xRz. 
+
+Since R is functional, x only relating to one y, but since this is also supposed to be transitive this creates a scenario where x relates to both y and z, violating functional rule. Because of this, R can’t be both functional and transitive.
+
+2. Inverse Functional and Transitive (XNS) 
+Explanation:
+
+Suppose R is both inverse functional and transitive. R is inverse functional if xRy and zRy, then x=z. R is transitive, if xRy and yRz, then xRz.
+
+Since R is inverse functional, z should relate to only one y, but because of it is also transitive, z could also relate to x, creating a scenario where z relates to both x and y, which violates the inverse functional rule. R cannot be both inverse functional and transitive.
+
+3. Transitive and Asymmetric (XNS)
+Explanation:
+
+Suppose R is both transitive and asymmetric. R is transitive if xRy and yRz, then xRz. R is asymmetric, if xRy, then it is not the case that yRx.
+
+By transitivity, xRz; but if zRx were to happen, asymmetry would be violated, since z cannot relate back to x. Because of this R cannot be both transitive and asymmetric.
+
+4. Transitive and Irreflexive (XNS)
+Explanation:
+
+Suppose R is both transitive and irreflexive. R is transitive if xRy and yRz, then xRz. If R is irreflexive, then xRx cannot hold for any x.
+
+In transitivity xRy and yRx implies xRx which directly violates irreflexivity since xRx cannot hold for any x. Because of this, R cannot be both transitive and irreflexive.
+
+5. Symmetric and Asymmetric (XUNSAT)
+Explanation:
+
+Suppose R is both symmetric and asymmetric. R is symmetric if xRy, then yRx. R is asymmetric, if xRy, it is not the case that yRx.
+
+Symmetry and Asymmetry are in direct conflict with each other since symmetry requires yRx whenever xRy, while asymmetry forbids yRx if xRy. Therefore, R cannot be both symmetric and asymmetric.
+
+6. Asymmetric and Reflexive (XUNSAT)
+Explanation:
+
+Suppose R is both asymmetric and reflexive. R is asymmetric, if xRy, it is not the case that yRx. If R is reflexive, xRx.
+
+Since reflexivity requires every element to relate to itself (xRx), and asymmetry prohibits xRx then R cannot be both asymmetric and reflexive.
+
+7. Reflexive and Irreflexive (XUNSAT)
+Explanation:
+Suppose R is both reflexive and irreflexive. If R is reflexive, xRx. If R is irreflexive, it is not the case that xRx.
+These definitions are in direct conflict since it’s impossible for xRx to be both true and false at the same time.  Because of this R cannot be both reflexive and irreflexive.
+
+Assignment Part 2
+
+ 	Trans	 	 	 
+Func	A	Ai	B	Bi
+A	X	X	X	X
+Ai	X	X	X	X
+B	OK	OK	X	X
+Bi	OK	OK	X	X
+
+For the cells with "X", where functionality and transitivity were applied to the same object property, OWL reasoners throw errors or ignore role constraints. For example, the above "X" combinations resulted in HermiT 1.4.3.456 reasoners generating internal errors.
+
+Conflict: Functional (A) and Transitive (B)
+
+Suppose B owl:subPropertyOf of A, A is functional and B is transitive. This corresponds to the first row (A) and the third column (B) of the table, marked with "X". Since B is transitive, if <x,y> and <y,z> hold, then <x,z> must also hold due to transitivity. But since A is functional, x can only relate to a single y. Since B owl:subPropertyOf of A,is transitive this implies that x could relate to multiple elements (both y and z), which violates the functionality constraint of A. This creates a conflict that OWL reasoners struggle to reconcile.
+
+Conflict: Inverse Functional (Ai) and Transitive (B)
+
+Suppose Ai is inverse functional and B is transitive, where B owl:subPropertyOf of A. This corresponds to the second row (Ai) and the third column (B), marked "X". For B, if <x,y> and <y,z>, then <x,z> by transitivity. Since Ai is inverse functional, each z should relate to only one x. But because of transitivity in B, z could relate to both x and y, which violates the inverse functionality of Ai. This contradiction makes it incompatible for OWL reasoners.
+
+Conflict: Functional (A) and Inverse Transitive (Ai)
+
+Suppose A is functional and Ai is transitive with B owl:subPropertyOf of A.  This matches the first row (A) and the second column (Ai), marked “X”.  With Ai being transitive, if <x,y> and <z,y>, then <x,z>.  This creates a conflict because if A is functional then <x,y> and <x,z>, then <y=z>. When attempting to satisfy both properties simultaneously, you run into a situation where x and z must be both equal and distinct at the same time, which is logically impossible. This contradiction makes it incompatible for OWL reasoners.
+
+Conflict: Functional (A) and Inverse Transitive (Bi)
+
+Suppose A is functional and Bi is inverse transitive with B owl:subPropertyOf of A.
+
+Now, suppose Bi is inverse transitive. If Bi is inverse transitive, then if xR-1y and yR-1z, inverse transitivity, it can imply xR-1z.  This creates a conflict because if A is functional then <x,y> and <x,z>, then <y=z>. The inverse transitivity of Ai suggests that z could be different from y but still related to x, which breaks the functional constraint and makes it incompatible for OWL reasoners.
+
+Conflict: Inverse Functional (Ai) and Transitive (A)
+
+Suppose Ai is inverse functional and A is transitive, where B owl:subPropertyOf of A. Second row (Ai) and first column (A) of the table marked with X.  Since Ai is inverse functional, each z should relate to only one x. For A, if <x,y> and <y,z>, then <x,z> by transitivity. Transitive relates to more things so the OWL reasoner states it is incompatible. 
+
+Conflict: Inverse Functional (Ai) and Inverse Transitive (Bi)
+
+
+
+Conflict: Functional (B) and Inverse Transitive (Bi)
+
+
+
+Conflict: Inverse Functional (Bi) and Transitive (B)
+
+
+
+
