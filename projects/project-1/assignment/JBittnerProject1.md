@@ -51,6 +51,48 @@ For example, to explain why `R` cannot be both asymmetric and symmetric, your ex
 - Suppose `R` is both symmetric and asymmetric. Then by symmetry for any x and y, if x`R`y it follows that y`R`x. However, by asymmetry it also follows that it is not the case that y`R`x. Hence, `R` cannot be both symmetric and asymmetric.
 Similarly, to explain why `R` cannot be both transitive and inverse functional.
 
+(1) Functional and Transitive (XNS)
+Suppose R is both functional and transitive.
+Because R is functional, if xRy and xRz, then y = z.
+Because R is transitive, if xRy and yRz, then xRz.
+Since R is functional, x relates to only one y. However, if R is also transitive, this creates a scenario where x relates to both y and z, violating the functional rule. Therefore, R cannot be both functional and transitive.
+
+(2) Inverse Functional and Transitive (XNS)
+Suppose R is both inverse functional and transitive.
+Because R is inverse functional, if xRy and zRy, then x = z.
+Because R is transitive, if xRy and yRz, then xRz.
+Since R is inverse functional, z should relate to only one y. However, if R is also transitive, z could relate to x, creating a scenario where z relates to both x and y, violating the inverse functional rule. Therefore, R cannot be both inverse functional and transitive.
+
+(3) Transitive and Asymmetric (XNS)
+Suppose R is both transitive and asymmetric.
+Because R is transitive, if xRy and yRz, then xRz.
+Because R is asymmetric, if xRy, then it is not the case that yRx.
+By transitivity, xRz. However, if zRx were to occur, asymmetry would be violated, as z cannot relate back to x. Therefore, R cannot be both transitive and asymmetric.
+
+(4) Transitive and Irreflexive (XNS)
+Suppose R is both transitive and irreflexive.
+Because R is transitive, if xRy and yRz, then xRz.
+Because R is irreflexive, it is not the case that xRx for any x.
+In transitivity, xRy and yRx implies xRx, which directly violates irreflexivity since xRx cannot hold for any x. Therefore, R cannot be both transitive and irreflexive.
+
+(5) Symmetric and Asymmetric (XUNSAT)
+Suppose R is both symmetric and asymmetric.
+Because R is symmetric, if xRy, then yRx.
+Because R is asymmetric, if xRy, then it is not the case that yRx.
+Symmetry and asymmetry are in direct conflict because symmetry requires yRx whenever xRy, while asymmetry forbids yRx if xRy. Therefore, R cannot be both symmetric and asymmetric.
+
+(6) Asymmetric and Reflexive (XUNSAT)
+Suppose R is both asymmetric and reflexive.
+Because R is asymmetric, if xRy, then it is not the case that yRx.
+Because R is reflexive, xRx for every x.
+Since reflexivity requires every element to relate to itself (xRx), and asymmetry prohibits xRx, R cannot be both asymmetric and reflexive.
+
+(7) Reflexive and Irreflexive (XUNSAT)
+Suppose R is both reflexive and irreflexive.
+Because R is reflexive, xRx for every x.
+Because R is irreflexive, it is not the case that xRx for any x.
+These definitions are in direct conflict since it’s impossible for xRx to be both true and false at the same time. Therefore, R cannot be both reflexive and irreflexive.
+
 ## Assignment Part 2
 
 Let us focus now on combinations of role constraints that do not result in inconsistency or undecidability. Moreover, let us focus on combinations of role constraints spread across parent-child object property relationships. To illustrate, suppose `B` is an owl:subPropertyOf `A`, `Ai` is the inverse of `A`, and `Bi` is the inverse of `B`. Keep in mind that: 
