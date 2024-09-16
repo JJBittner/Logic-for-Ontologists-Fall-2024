@@ -53,10 +53,10 @@ Similarly, to explain why `R` cannot be both transitive and inverse functional.
 
 **(1) Functional and Transitive (XNS)**
 
-Suppose R is both functional and transitive.
-Because R is functional, if x'R'y and x'R'z, then y = z.
-Because R is transitive, if x'R'y and y'R'z, then x'R'z.
-Since 'R' is functional, x relates to only one y. However, if 'R' is also transitive, this creates a scenario where x relates to both y and z, violating the functional rule. Therefore, 'R' cannot be both functional and transitive.
+Suppose `R` is both functional and transitive.
+Because `R` is functional, if x`R`y and x`R`z, then y = z.
+Because `R` is transitive, if x`R`y and y`R`z, then x`R`z.
+Since `R` is functional, x relates to only one y. However, if `R` is also transitive, this creates a scenario where x relates to both y and z, violating the functional rule. Therefore, 'R' cannot be both functional and transitive.
 
 **(2) Inverse Functional and Transitive (XNS)**
 
