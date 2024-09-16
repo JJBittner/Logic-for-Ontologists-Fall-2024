@@ -102,6 +102,8 @@ These definitions are in direct conflict since it’s impossible for x'R'x to be
 
 ## Assignment Part 2
 
+J Bittner, Tim Coleman & Matilde Miroir
+
 Let us focus now on combinations of role constraints that do not result in inconsistency or undecidability. Moreover, let us focus on combinations of role constraints spread across parent-child object property relationships. To illustrate, suppose `B` is an owl:subPropertyOf `A`, `Ai` is the inverse of `A`, and `Bi` is the inverse of `B`. Keep in mind that: 
 - For any object properties `A`, `B`: if `B` owl:subPropertyOf `A` then for any  `<x,y>` in `B` that `<x,y>` is also in `A`
 - For any object properties `R`, `Ri`: if `R` inverse of `Ri` then for any `<x,y>` in `R` then `<y,x>` in `Ri`
