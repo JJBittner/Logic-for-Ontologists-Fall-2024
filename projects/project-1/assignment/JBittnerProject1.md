@@ -163,19 +163,19 @@ TransitiveObjectProperty( OPE )
 | **Bi Func** | Y<sub>13| Y<sub>14| N<sub>15 | N<sub>16 |
 
 ## Conflict: Functional (A) and Transitive (B)
-Suppose A is functional, and B is transitive. This corresponds to the first row (A) and the third column (B) of the table, marked with "X". Since B is transitive, if <x,y> and <y,z> hold, then <x,z> must also hold due to transitivity. 
+Suppose A is functional, and B is transitive. This corresponds to the first row (A) and the third column (B) of the table, marked with "N". Since B is transitive, if <x,y> and <y,z> hold, then <x,z> must also hold due to transitivity. 
 
 This creates a conflict since A is functional, x can only relate to a single y. Since B transitive this implies that x could relate to multiple elements (both y and z), which violates the functionality constraint of A and OWL reasoners struggle to reconcile.
 
 ## Conflict: Inverse Functional (Ai) and Transitive (B)
 
-Suppose Ai is inverse functional and B is transitive. This corresponds to the second row (Ai) and the third column (B), marked "X". For B, if <x,y> and <y,z>, then <x,z> by transitivity. Since Ai is inverse functional, each z should relate to only one x. 
+Suppose Ai is inverse functional and B is transitive. This corresponds to the second row (Ai) and the third column (B), marked "N". For B, if <x,y> and <y,z>, then <x,z> by transitivity. Since Ai is inverse functional, each z should relate to only one x. 
 
 This creates a conflict because of transitivity in B, z could relate to both x and y, which violates the inverse functionality of Ai and this contradiction makes it incompatible for OWL reasoners
 
 ## Conflict: Functional (A) and Inverse Transitive (Ai)
 
-Suppose A is functional and Ai is transitive with B owl:subPropertyOf of A. This matches the first row (A) and the second column (Ai), marked “X”. With Ai being transitive, if <x,y> and <z,y>, then <x,z>. This creates a conflict because if A is functional, then <x,y> and <x,z>, then <y=z>. 
+Suppose A is functional and Ai is transitive with B owl:subPropertyOf of A. This matches the first row (A) and the second column (Ai), marked “N”. With Ai being transitive, if <x,y> and <z,y>, then <x,z>. This creates a conflict because if A is functional, then <x,y> and <x,z>, then <y=z>. 
 
 This creates a conflit When attempting to satisfy both properties simultaneously, you run into a situation where x and z must be both equal and distinct at the same time, which is logically impossible, and this contradiction makes it incompatible for OWL reasoners.
 
