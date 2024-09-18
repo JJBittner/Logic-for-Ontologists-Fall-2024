@@ -1,6 +1,6 @@
 # J Bittner Project 1: OWL Cheat Sheet
 
-Collaborative attempt by Jay Bittner, Tim Coleman, and Mathilde Miroir
+Collaborative attempt by J Bittner, Tim Coleman, and Mathilde Miroir
 
 The goal of this project is to complete OWL documentation concerning logical combinations of role constraints over object properties. It includes two sub-assignments: (1) Providing OWL 2 direct semantics-based explanations for unsatisfiability and inconsistency results stemming from role constraint pairs; (2) Providing OWL 2 direct semantics-based explanations for results stemming from role constraint combinations under the owl:subPropertyOf relationship.
 
