@@ -1,5 +1,7 @@
 # J Bittner Project 1: OWL Cheat Sheet
 
+Collaborative attempt by Jay Bittner, Tim Coleman, and Mathilde Miroir
+
 The goal of this project is to complete OWL documentation concerning logical combinations of role constraints over object properties. It includes two sub-assignments: (1) Providing OWL 2 direct semantics-based explanations for unsatisfiability and inconsistency results stemming from role constraint pairs; (2) Providing OWL 2 direct semantics-based explanations for results stemming from role constraint combinations under the owl:subPropertyOf relationship.
 
 I will remind you that my goal in this exercise is to produce a publishable paper on this topic by the end of the project; I aim to include anyone on the paper as an author who completes the project. The content of this paper will be a great benefit to the ontology engineering community, so it is important to have this work presented to the broader public sooner rather than later. 
@@ -128,7 +130,7 @@ Suppose `B` owl:subPropertyOf of `A`, `A` is irreflexive and `B` is transitive. 
 - `Ai` is the inverse of `A`
 - `Bi` is the inverse of `B`
 
-### Trials for Overlapping Transitive and Irreflexive Properties 
+### (A) Transitive and Irreflexive Trials 
 |            | A Trans | B Trans | Ai Trans | Bi Trans |
 |------------|---------|---------|----------|----------|
 | **A Irr**  | N<sub>1 | N<sub>2 | N<sub>3  | N<sub>4  |
@@ -154,13 +156,17 @@ IrreflexiveObjectProperty( OPE )
 TransitiveObjectProperty( OPE ) 
 - ∀ x , y , z : ( x , y ) ∈ (OPE)<sup>OP</sup> and ( y , z ) ∈ (OPE)<sup>OP</sup> imply ( x , z ) ∈ (OPE)<sup>OP</sup>
 
-### Trials for Overlapping Transitive and Functional Properties
+### (B) Transitive and Functional Trials
 |             | A Trans | B Trans | Ai Trans | Bi Trans |
 |-------------|---------|---------|----------|----------|
 | **A  Func** | N<sub>1 | N<sub>2 | N<sub>3  | N<sub>4  |
 | **B  Func** | N<sub>5 | N<sub>6 | N<sub>7  | N<sub>8  |
 | **Ai Func** | Y<sub>9 | Y<sub>10| N<sub>11 | N<sub>12 |
 | **Bi Func** | Y<sub>13| Y<sub>14| N<sub>15 | N<sub>16 |
+
+*_N denotes an error while Y denotes a successful run_
+
+**_Subscripts denote corresponding explantion below_
 
 ## Conflict: Functional (A) and Transitive (B)
 
@@ -216,13 +222,29 @@ Suppose `Bi` is inverse functional and `B` is transitive. This corresponds to th
 
 This creates a conflict because the inverse functionality of `Bi` means that each `y` should relate to only one `x`, ensuring a "one-to-one" correspondence. However, `B` being transitive allows `x` to relate to multiple `z` values via different `y` values. This situation violates the inverse functionality constraint, as it implies that a single `y` could relate back to multiple `x` values through `B`'s transitivity. This conflict makes the properties incompatible for OWL reasoners.
 
-### Trials for Overlapping Transitive and Asymmetric Properties
-|             | A Trans | B Trans | Ai Trans | Bi Trans |
-|-------------|---------|---------|----------|----------|
-| **A  Asym** | N<sub>1 | N<sub>2 | N<sub>3  | N<sub>4  |
-| **B  Asym** | N<sub>5 | N<sub>6 | N<sub>7  | N<sub>8  |
-| **Ai Asym** | Y<sub>9 | Y<sub>10| N<sub>11 | N<sub>12 |
-| **Bi Asym** | Y<sub>13| Y<sub>14| N<sub>15 | N<sub>16 |
+### (C) Transitive and Inverse Functional
+|              | A Trans | B Trans | Ai Trans | Bi Trans |
+|--------------|---------|---------|----------|----------|
+| **A iFunc**  | A<sub>1 | A<sub>2 | A<sub>3  | A<sub>4  |
+| **B iFunc**  | A<sub>5 | A<sub>6 | A<sub>7  | A<sub>8  |
+| **Ai iFunc** | A<sub>9 | A<sub>10| A<sub>11 | A<sub>12 |
+| **Bi iFUnc** | A<sub>13| A<sub>14| A<sub>15 | A<sub>16 |
+
+*_N denotes an error while Y denotes a successful run_
+
+**_Subscripts denote corresponding explantion below_
+
+## (D) Transitive and Asymmetric Trials
+|              | A Trans | B Trans | Ai Trans | Bi Trans |
+|--------------|---------|---------|----------|----------|
+| **A  Asymm** | N<sub>1 | N<sub>2 | N<sub>3  | N<sub>4  |
+| **B  Asymm** | N<sub>5 | N<sub>6 | N<sub>7  | N<sub>8  |
+| **Ai Asymm** | Y<sub>9 | Y<sub>10| N<sub>11 | N<sub>12 |
+| **Bi Asymm** | Y<sub>13| Y<sub>14| N<sub>15 | N<sub>16 |
+
+*_N denotes an error while Y denotes a successful run_
+
+**_Subscripts denote corresponding explantion below_
 
 - **Conflict: Asymmetric Ai and Transitive A**  
 
@@ -272,10 +294,15 @@ This creates a conflict because the inverse functionality of `Bi` means that eac
   
   This creates a conflict since `Bi` is transitive; because in transitivity, if `xRy` and `yRz`, then `xRz` must hold, but asymmetry can’t hold as asymmetry prevents the case that `yRx`. This contradiction makes it incompatible for OWL reasoners.
 
-  ### Trials for Overlapping Transitive and Asymmetric Properties
-|             | A Asym  | B Aysm  | Ai Asym  | Bi Asym  |
-|-------------|---------|---------|----------|----------|
-| **A  Ref**  | N<sub>1 | N<sub>2 | N<sub>3  | N<sub>4  |
-| **B  Ref**  | N<sub>5 | N<sub>6 | N<sub>7  | N<sub>8  |
-| **Ai Ref**  | Y<sub>9 | Y<sub>10| N<sub>11 | N<sub>12 |
-| **Bi Ref**  | Y<sub>13| Y<sub>14| N<sub>15 | N<sub>16 |
+### (E) Assymetric and Reflexive Trials
+|              |A Reflex |B Reflex |Ai Reflex |Bi Reflex |
+|--------------|---------|---------|----------|----------|
+| **A Asymm**  | A<sub>1 | A<sub>2 | A<sub>3  | A<sub>4  |
+| **B Asymm**  | A<sub>5 | A<sub>6 | A<sub>7  | A<sub>8  |
+| **Ai Asymm** | A<sub>9 | A<sub>10| A<sub>11 | A<sub>12 |
+| **Bi Asymm** | A<sub>13| A<sub>14| A<sub>15 | A<sub>16 |
+
+*_N denotes an error while Y denotes a successful run_
+
+**_Subscripts denote corresponding explantion below_
+
