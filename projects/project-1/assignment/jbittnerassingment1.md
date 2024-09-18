@@ -56,49 +56,49 @@ Similarly, to explain why `R` cannot be both transitive and inverse functional.
 Suppose `R` is both functional and transitive.
 Because `R` is functional, if x`R`y and x`R`z, then y = z.
 Because `R` is transitive, if x`R`y and y`R`z, then x`R`z.
-Since `R` is functional, x relates to only one y. However, if `R` is also transitive, this creates a scenario where x relates to both y and z, violating the functional rule. Therefore, 'R' cannot be both functional and transitive.
+Since `R` is functional, x relates to only one y. However, if `R` is also transitive, this creates a scenario where x relates to both y and z, violating the functional rule. Therefore, `R` cannot be both functional and transitive.
 
 **(2) Inverse Functional and Transitive (XNS)**
 
-Suppose 'R' is both inverse functional and transitive.
-Because 'R' is inverse functional, if x'R'y and z'R'y, then x = z.
-Because 'R' is transitive, if x'R'y and y'R'z, then x'R'z.
-Since 'R' is inverse functional, z should relate to only one y. However, if 'R' is also transitive, z could relate to x, creating a scenario where z relates to both x and y, violating the inverse functional rule. Therefore, 'R' cannot be both inverse functional and transitive.
+Suppose `R` is both inverse functional and transitive.
+Because `R` is inverse functional, if x`R`y and z`R`y, then x = z.
+Because `R` is transitive, if x`R`y and y`R`z, then x`R`z.
+Since `R` is inverse functional, z should relate to only one y. However, if `R` is also transitive, z could relate to x, creating a scenario where z relates to both x and y, violating the inverse functional rule. Therefore, `R` cannot be both inverse functional and transitive.
 
 **(3) Transitive and Asymmetric (XNS)**
 
-Suppose 'R' is both transitive and asymmetric.
-Because 'R' is transitive, if x'R'y and y'R'z, then x'R'z.
-Because 'R' is asymmetric, if x'R'y, then it is not the case that yRx.
-By transitivity, x'R'z. However, if z'R'x were to occur, asymmetry would be violated, as z cannot relate back to x. Therefore, 'R' cannot be both transitive and asymmetric.
+Suppose `R` is both transitive and asymmetric.
+Because `R` is transitive, if x`R`y and y`R`z, then x`R`z.
+Because `R` is asymmetric, if x`R`y, then it is not the case that yRx.
+By transitivity, x`R`z. However, if z`R`x were to occur, asymmetry would be violated, as z cannot relate back to x. Therefore, `R` cannot be both transitive and asymmetric.
 
 **(4) Transitive and Irreflexive (XNS)**
 
-Suppose 'R' is both transitive and irreflexive.
-Because 'R' is transitive, if x'R'y and y'R'z, then x'R'z.
-Because 'R' is irreflexive, it is not the case that x'R'x for any x.
-In transitivity, x'R'y and y'R'x implies x'R'x, which directly violates irreflexivity since xRx cannot hold for any x. Therefore, 'R' cannot be both transitive and irreflexive.
+Suppose `R` is both transitive and irreflexive.
+Because `R` is transitive, if x`R`y and y`R`z, then x`R`z.
+Because `R` is irreflexive, it is not the case that x`R`x for any x.
+In transitivity, x`R`y and y`R`x implies x`R`x, which directly violates irreflexivity since xRx cannot hold for any x. Therefore, `R` cannot be both transitive and irreflexive.
 
 **(5) Symmetric and Asymmetric (XUNSAT)**
 
-Suppose 'R' is both symmetric and asymmetric.
-Because 'R' is symmetric, if x'R'y, then y'R'x.
-Because 'R' is asymmetric, if x'R'y, then it is not the case that y'R'x.
-Symmetry and asymmetry are in direct conflict because symmetry requires y'R'x whenever x'R'y, while asymmetry forbids y'R'x if x'R'y. Therefore, 'R' cannot be both symmetric and asymmetric.
+Suppose `R` is both symmetric and asymmetric.
+Because `R` is symmetric, if x`R`y, then y`R`x.
+Because `R` is asymmetric, if x`R`y, then it is not the case that y`R`x.
+Symmetry and asymmetry are in direct conflict because symmetry requires y`R`x whenever x`R`y, while asymmetry forbids y`R`x if x`R`y. Therefore, `R` cannot be both symmetric and asymmetric.
 
 **(6) Asymmetric and Reflexive (XUNSAT)**
 
-Suppose 'R' is both asymmetric and reflexive.
-Because 'R' is asymmetric, if x'R'y, then it is not the case that yRx.
-Because 'R' is reflexive, x'R'x for every x.
-Since reflexivity requires every element to relate to itself (x'R'x), and asymmetry prohibits x'R'x, 'R' cannot be both asymmetric and reflexive.
+Suppose `R` is both asymmetric and reflexive.
+Because `R` is asymmetric, if x`R`y, then it is not the case that yRx.
+Because `R` is reflexive, x`R`x for every x.
+Since reflexivity requires every element to relate to itself (x`R`x), and asymmetry prohibits x`R`x, `R` cannot be both asymmetric and reflexive.
 
 **(7) Reflexive and Irreflexive (XUNSAT)**
 
-Suppose 'R' is both reflexive and irreflexive.
-Because 'R' is reflexive, x'R'x for every x.
-Because 'R' is irreflexive, it is not the case that x'R'x for any x.
-These definitions are in direct conflict since it’s impossible for x'R'x to be both true and false at the same time. Therefore, 'R' cannot be both reflexive and irreflexive.
+Suppose `R` is both reflexive and irreflexive.
+Because `R` is reflexive, x`R`x for every x.
+Because `R` is irreflexive, it is not the case that x`R`x for any x.
+These definitions are in direct conflict since it’s impossible for x`R`x to be both true and false at the same time. Therefore, `R` cannot be both reflexive and irreflexive.
 
 ## Assignment Part 2
 
@@ -163,31 +163,36 @@ TransitiveObjectProperty( OPE )
 | **Bi Func** | Y<sub>13| Y<sub>14| N<sub>15 | N<sub>16 |
 
 ## Conflict: Functional (A) and Transitive (B)
-Suppose A is functional, and B is transitive. This corresponds to the first row (A) and the third column (B) of the table, marked with "N". Since B is transitive, if <x,y> and <y,z> hold, then <x,z> must also hold due to transitivity. 
 
-This creates a conflict since A is functional, x can only relate to a single y. Since B transitive this implies that x could relate to multiple elements (both y and z), which violates the functionality constraint of A and OWL reasoners struggle to reconcile.
+(1) Suppose `A` is functional, and `B` is transitive. This corresponds to the first row (`A`) and the third column (`B`) of the table, marked with "N". Because `B` is transitive, if `<x,y>` and `<y,z>` hold, then `<x,z>` must also hold due to transitivity.
+
+This creates a conflict since `A` is functional; `x` can only relate to a single `y`. Since `B` is transitive, this implies that `x` could relate to multiple elements (both `y` and `z`), which violates the functionality constraint of `A`, and OWL reasoners struggle to reconcile this.
 
 ## Conflict: Inverse Functional (Ai) and Transitive (B)
 
-Suppose Ai is inverse functional and B is transitive. This corresponds to the second row (Ai) and the third column (B), marked "N". For B, if <x,y> and <y,z>, then <x,z> by transitivity. Since Ai is inverse functional, each z should relate to only one x. 
+Suppose `Ai` is inverse functional and `B` is transitive. This corresponds to the second row (`Ai`) and the third column (`B`), marked "N". For `B`, if `<x,y>` and `<y,z>`, then `<x,z>` by transitivity. Since `Ai` is inverse functional, each `z` should relate to only one `x`.
 
-This creates a conflict because of transitivity in B, z could relate to both x and y, which violates the inverse functionality of Ai and this contradiction makes it incompatible for OWL reasoners
+This creates a conflict because, due to transitivity in `B`, `z` could relate to both `x` and `y`, which violates the inverse functionality of `Ai`. This contradiction makes it incompatible for OWL reasoners.
 
 ## Conflict: Functional (A) and Inverse Transitive (Ai)
 
-Suppose A is functional and Ai is transitive with B owl:subPropertyOf of A. This matches the first row (A) and the second column (Ai), marked “N”. With Ai being transitive, if <x,y> and <z,y>, then <x,z>. This creates a conflict because if A is functional, then <x,y> and <x,z>, then <y=z>. 
+Suppose `A` is functional and `Ai` is transitive with `B` being `owl:subPropertyOf` `A`. This matches the first row (`A`) and the second column (`Ai`), marked “N”. With `Ai` being transitive, if `<x,y>` and `<z,y>`, then `<x,z>`. This creates a conflict because if `A` is functional, then `<x,y>` and `<x,z>` imply that `y = z`. 
 
-This creates a conflit When attempting to satisfy both properties simultaneously, you run into a situation where x and z must be both equal and distinct at the same time, which is logically impossible, and this contradiction makes it incompatible for OWL reasoners.
+This creates a conflict when attempting to satisfy both properties simultaneously, leading to a situation where `x` and `z` must be both equal and distinct at the same time, which is logically impossible. This contradiction makes it incompatible for OWL reasoners.
 
 ## Conflict: Functional (A) and Inverse Transitive (Bi)
 
-Suppose A is functional and Bi is inverse transitive with B owl:subPropertyOf of A. Suppose Bi is inverse transitive. If Bi is inverse transitive, then if xR-1y and yR-1z, inverse transitivity, it can imply xR-1z. 
+Suppose `A` is functional and `Bi` is inverse transitive with `B` being `owl:subPropertyOf` `A`. If `Bi` is inverse transitive, then if `xR⁻¹y` and `yR⁻¹z`, inverse transitivity implies `xR⁻¹z`.
 
-This creates a conflict because if A is functional then <x,y> and <x,z>, then <y=z>. The inverse transitivity of Ai suggests that z could be different from y but still related to x, which breaks the functional constraint and makes it incompatible for OWL reasoners.
+This creates a conflict because if `A` is functional, then `<x,y>` and `<x,z>` imply that `y = z`. However, the inverse transitivity of `Bi` suggests that `z` could be different from `y` but still related to `x`, which breaks the functional constraint and makes it incompatible for OWL reasoners.
 
 ## Conflict: Inverse Functional (Ai) and Transitive (A)
 
 Suppose Ai is inverse functional and A is transitive, where B is owl:subPropertyOf of A. This corresponds to the second row (Ai) and the first column (A) of the table marked with X. Since Ai is inverse functional, each z should relate to only one x. For A, if <x,y> and <y,z>, then <x,z> by transitivity. Transitivity relates to more things, so the OWL reasoner states it is incompatible.
+
+Suppose `Ai` is inverse functional and `A` is transitive, where `B` is `owl:subPropertyOf` `A`. This corresponds to the second row (`Ai`) and the first column (`A`) of the table, marked with "X". Since `Ai` is inverse functional, each `z` should relate to only one `x`. For `A`, if `<x,y>` and `<y,z>`, then `<x,z>` by transitivity.
+
+This creates a conflict because transitivity allows `x` to relate to multiple elements (`y` and `z`), which violates the inverse functional constraint of `Ai` where each `z` should only relate to one `x`. This contradiction makes it incompatible for OWL reasoners.
 
 ## Conflict: Inverse Functional (Ai) and Inverse Transitive (Bi)
 
@@ -195,17 +200,21 @@ Suppose Ai is inverse functional and Bi is inverse transitive. This corresponds 
 
 This creates a conflict because if Ai is inverse functional, <xRy> and <zRy> should imply that <x = z>. But due to the inverse transitivity of Bi, it's possible for <x> and <z> to both relate to <y>, which contradicts the inverse functionality constraint that requires <x> and <z> to be the same. This inconsistency makes it incompatible for OWL reasoners.
 
+Suppose `Ai` is inverse functional and `Bi` is inverse transitive. This corresponds to the third row (`Ai`) and the fourth column (`Bi`), marked "N<sub>12</sub>". Since `Ai` is inverse functional, for any `<x,y>` and `<z,y>`, it must hold that `<x = z>`. However, because `Bi` is inverse transitive, if `<xRy>` and `<yRz>`, then by inverse transitivity, `<xRz>`.
+
+This creates a conflict because if `Ai` is inverse functional, `<xRy>` and `<zRy>` should imply that `<x = z>`. But due to the inverse transitivity of `Bi`, it's possible for `<x>` and `<z>` to both relate to `<y>`, which contradicts the inverse functionality constraint that requires `<x>` and `<z>` to be the same. This inconsistency makes it incompatible for OWL reasoners.
+
 ## Conflict: Functional (B) and Inverse Transitive (Bi)
 
-Suppose B is functional and Bi is inverse transitive. This corresponds to the second row (B) and the fourth column (Bi) of the table, marked with "N" (N<sub>8</sub>). If B is functional, for any x, x relates to at most one y. If Bi is inverse transitive, then if xR<sup>-1</sup>y and yR<sup>-1</sup>z, inverse transitivity implies xR<sup>-1</sup>z.
+Suppose `B` is functional and `Bi` is inverse transitive. This corresponds to the second row (`B`) and the fourth column (`Bi`) of the table, marked with "N" (N<sub>8</sub>). If `B` is functional, for any `x`, `x` relates to at most one `y`. If `Bi` is inverse transitive, then if `xR⁻¹y` and `yR⁻¹z`, inverse transitivity implies `xR⁻¹z`.
 
-This creates a conflict because B’s functionality requires x to relate to only one y, but inverse transitivity of Bi suggests that z could relate back to x in multiple ways through different y values. This scenario breaks the "one-to-one" restriction of functionality, making it logically incompatible for OWL reasoners.
+This creates a conflict because `B`’s functionality requires `x` to relate to only one `y`, but the inverse transitivity of `Bi` suggests that `z` could relate back to `x` in multiple ways through different `y` values. This scenario breaks the "one-to-one" restriction of functionality, making it logically incompatible for OWL reasoners.
 
 ## Conflict: Inverse Functional (Bi) and Transitive (B)
 
-Suppose Bi is inverse functional and B is transitive. This corresponds to the fourth row (Bi) and the second column (B) of the table, marked with "N" (N<sub>14</sub>). If Bi is inverse functional, for any y, y relates to at most one x. If B is transitive, then if <x,y> and <y,z> hold, then <x,z> must also hold due to transitivity.
+Suppose `Bi` is inverse functional and `B` is transitive. This corresponds to the fourth row (`Bi`) and the second column (`B`) of the table, marked with "N" (N<sub>14</sub>). If `Bi` is inverse functional, for any `y`, `y` relates to at most one `x`. If `B` is transitive, then if `<x,y>` and `<y,z>` hold, then `<x,z>` must also hold due to transitivity.
 
-This creates a conflict because the inverse functionality of Bi means that each y should relate to only one x, ensuring a "one-to-one" correspondence. However, B being transitive allows x to relate to multiple z values via different y values. This situation violates the inverse functionality constraint, as it implies that a single y could relate back to multiple x values through B's transitivity. This conflict makes the properties incompatible for OWL reasoners.
+This creates a conflict because the inverse functionality of `Bi` means that each `y` should relate to only one `x`, ensuring a "one-to-one" correspondence. However, `B` being transitive allows `x` to relate to multiple `z` values via different `y` values. This situation violates the inverse functionality constraint, as it implies that a single `y` could relate back to multiple `x` values through `B`'s transitivity. This conflict makes the properties incompatible for OWL reasoners.
 
 ### Trials for Overlapping Transitive and Asymmetric Properties
 |             | A Trans | B Trans | Ai Trans | Bi Trans |
@@ -262,3 +271,11 @@ This creates a conflict because the inverse functionality of Bi means that each 
   Suppose `Bi` is asymmetric, and `Bi` is transitive. This corresponds to the fourth row (Bi) and the fourth column (Bi) of the table, marked with “N”.  
   
   This creates a conflict since `Bi` is transitive; because in transitivity, if `xRy` and `yRz`, then `xRz` must hold, but asymmetry can’t hold as asymmetry prevents the case that `yRx`. This contradiction makes it incompatible for OWL reasoners.
+
+  ### Trials for Overlapping Transitive and Asymmetric Properties
+|             | A Asym  | B Aysm  | Ai Asym  | Bi Asym  |
+|-------------|---------|---------|----------|----------|
+| **A  Ref**  | N<sub>1 | N<sub>2 | N<sub>3  | N<sub>4  |
+| **B  Ref**  | N<sub>5 | N<sub>6 | N<sub>7  | N<sub>8  |
+| **Ai Ref**  | Y<sub>9 | Y<sub>10| N<sub>11 | N<sub>12 |
+| **Bi Ref**  | Y<sub>13| Y<sub>14| N<sub>15 | N<sub>16 |
