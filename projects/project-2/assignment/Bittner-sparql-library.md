@@ -150,6 +150,8 @@ This query will return any non-root term that violates either of these constrain
 
 **Severity**: Error
 
+```sparql 
+
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 SELECT ?class ?error
 WHERE {
@@ -157,6 +159,8 @@ WHERE {
   FILTER NOT EXISTS { ?class rdfs:label ?label }
   BIND (concat("ERROR: The class ", str(?class), " is missing an rdfs:label.") AS ?error)
 }
+
+```
 
 Sophistication Level: 8 (0 points)
 
@@ -168,15 +172,19 @@ Constraint Description: This query identifies classes that have more than one rd
 
 **Severity**: Warning
 
+```sparql 
+
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 SELECT ?class (COUNT(?label) AS ?labelCount) ?error
 WHERE {
   ?class a rdfs:Class .
   ?class rdfs:label ?label .
+  BIND (concat("WARNING: The class ", str(?class), " has multiple rdfs:labels.") AS ?error)
 }
-GROUP BY ?class
+GROUP BY ?class ?error
 HAVING (COUNT(?label) > 1)
-BIND (concat("WARNING: The class ", str(?class), " has multiple rdfs:labels.") AS ?error)
+
+```
 
 **Sophistication Level**: 7 (2 points)
 
@@ -188,6 +196,8 @@ Constraint Description: This query identifies classes that do not have a skos:de
 
 **Severity**: Error
 
+```sparql 
+
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 SELECT ?class ?error
@@ -196,6 +206,8 @@ WHERE {
   FILTER NOT EXISTS { ?class skos:definition ?definition }
   BIND (concat("ERROR: The class ", str(?class), " is missing a skos:definition.") AS ?error)
 }
+
+```
 
 Sophistication Level: 6 (3 points)
 
@@ -207,6 +219,8 @@ Sophistication Level: 6 (3 points)
 
 **Severity**: Warning
 
+```sparql 
+
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 SELECT ?class ?error
@@ -215,6 +229,8 @@ WHERE {
   ?class owl:deprecated "true"^^xsd:boolean .
   BIND (concat("WARNING: The class ", str(?class), " is marked as deprecated.") AS ?error)
 }
+
+```
 
 **Sophistication Level**: 5 (5 points)
 
@@ -226,38 +242,45 @@ WHERE {
 
 **Severity**: Error
 
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-SELECT ?class (COUNT(DISTINCT ?parent) AS ?parentCount) ?error
-WHERE {
-  ?class a rdfs:Class .
-  ?class rdfs:subClassOf ?parent .
-}
-GROUP BY ?class
-HAVING (COUNT(DISTINCT ?parent) > 1)
-BIND (concat("ERROR: The class ", str(?class), " has multiple rdfs:subClassOf parents.") AS ?error)
+```sparql 
 
-**Sophistication Level**: 3 (20 points)
-
-## Query 6: Check for Cyclic Inheritance ##
-
-**Title**: Cyclic Inheritance in Classes
-
-**Constraint Description**: This query identifies classes that are involved in cyclic inheritance, violating the acyclic nature of class hierarchies.
-
-**Severity**: Error
-
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 SELECT ?class ?error
 WHERE {
   ?class a rdfs:Class .
-  ?class rdfs:subClassOf+ ?ancestor .
-  FILTER(?class = ?ancestor)
-  BIND (concat("ERROR: The class ", str(?class), " is involved in cyclic inheritance.") AS ?error)
+  ?class owl:deprecated "true"^^xsd:boolean .
+  BIND (concat("WARNING: The class ", str(?class), " is marked as deprecated.") AS ?error)
 }
+
+```
+
+**Sophistication Level**: 3 (20 points)
+
+## Query 6: Check for Properties with No Domain ##
+
+**Title**: Properties with No Domain
+
+**Constraint Description**: This query identifies properties that do not have a specified domain.
+
+**Severity**: Warning
+
+```sparql 
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?property ?error
+WHERE {
+  ?property a rdf:Property .
+  FILTER NOT EXISTS { ?property rdfs:domain ?domain }
+  BIND (concat("WARNING: The property ", str(?property), " does not have a specified domain.") AS ?error)
+}
+
+```
 
 **Sophistication Level**: 2 (25 points)
 
-## Query 7: Check for Unconnected Classes $$
+## Query 7: Check for Unconnected Classes ##
 
 **Title**: Unconnected Classes
 
@@ -265,16 +288,21 @@ WHERE {
 
 **Severity**: Error
 
+```sparql 
+
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
 SELECT ?class ?error
 WHERE {
   ?class a rdfs:Class .
-  MINUS {
+  FILTER NOT EXISTS {
     ?class rdfs:subClassOf+ owl:Thing .
   }
   BIND (concat("ERROR: The class ", str(?class), " is not connected to the root owl:Thing.") AS ?error)
 }
+
+```
 
 **Sophistication Level**: 1 (35 points)
 
@@ -286,6 +314,8 @@ WHERE {
 
 **Severity** : Warning
 
+```sparql 
+
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 SELECT ?class ?error
@@ -294,6 +324,8 @@ WHERE {
   FILTER NOT EXISTS { ?class owl:equivalentClass ?equivalentClass }
   BIND (concat("WARNING: The class ", str(?class), " is missing an owl:equivalentClass.") AS ?error)
 }
+
+```
 
 **Sophistication Level**: 4  
 **Points**: 10
