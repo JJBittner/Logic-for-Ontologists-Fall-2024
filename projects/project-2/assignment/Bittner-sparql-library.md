@@ -1,6 +1,6 @@
 **The SPARQL Library of Common Core Ontologies**
 
-Project 2 - J Bittner, Tim Coleman, Mathilde Miroir
+Project 2 - J Bittner
 
 The goal of this project is to develop a suite of SPARQL queries that will serve as quality control (QC) checks against the [Common Core Ontologies](https://github.com/CommonCoreOntology/CommonCoreOntologies) suite. These queries will be designed to identify and flag potential issues, ensuring the ontology's integrity, consistency, and adherence to predefined standards.
 
@@ -80,7 +80,7 @@ WHERE {
 
 ```
 
-Sophistication Level: 8 (0 points)
+**Level**: 8 (0 points)
 
 ## Query 2: Check for Multiple rdfs:labels ##
 
@@ -104,7 +104,7 @@ HAVING (COUNT(?label) > 1)
 
 ```
 
-**Sophistication Level**: 7 (2 points)
+**Level**: 7 (2 points)
 
 ## Query 3: Check for Missing skos:definition ##
 
@@ -150,7 +150,7 @@ WHERE {
 
 ```
 
-**Sophistication Level**: 5 (5 points)
+**Level**: 5 (5 points)
 
 ## Query 5: Check for Single Inheritance ##
 
@@ -173,7 +173,7 @@ WHERE {
 
 ```
 
-**Sophistication Level**: 3 (20 points)
+**Level**: 3 (20 points)
 
 ## Query 6: Check for Properties with No Domain ##
 
@@ -196,7 +196,7 @@ WHERE {
 
 ```
 
-**Sophistication Level**: 2 (25 points)
+**Level**: 2 (25 points)
 
 ## Query 7: Check for Unconnected Classes ##
 
@@ -222,7 +222,7 @@ WHERE {
 
 ```
 
-**Sophistication Level**: 1 (35 points)
+**Level**: 1 (35 points)
 
 ## Query 8: Check for Missing owl:equivalentClass ##
 
@@ -245,8 +245,7 @@ WHERE {
 
 ```
 
-**Sophistication Level**: 4  
-**Points**: 10
+**Level**: 4 (10 points)
 
 
 
