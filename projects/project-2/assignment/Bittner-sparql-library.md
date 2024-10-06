@@ -79,6 +79,16 @@ WHERE {
 }
 
 ```
+```sparql 
+
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+SELECT ?person ?email
+WHERE {
+  ?person foaf:mbox ?email .
+  FILTER regex(?email, "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")
+}
+
+```
 
 **Level**: 8 (0 points)
 
@@ -240,6 +250,19 @@ SELECT ?class ?error
 WHERE {
   ?class a rdfs:Class .
   FILTER NOT EXISTS { ?class owl:equivalentClass ?equivalentClass }
+  BIND (concat("WARNING: The class ", str(?class), " is missing an owl:equivalentClass.") AS ?error)
+}
+
+```
+```sparql 
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?class ?error
+WHERE {
+  ?class a rdfs:Class .
+  FILTER NOT EXISTS { ?class owl:equivalentClass ?equivalentClass }
+  FILTER regex(str(?class), "^http://example\\.org/classes/")
   BIND (concat("WARNING: The class ", str(?class), " is missing an owl:equivalentClass.") AS ?error)
 }
 
