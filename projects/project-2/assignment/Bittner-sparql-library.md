@@ -79,16 +79,6 @@ WHERE {
 }
 
 ```
-```sparql 
-
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-SELECT ?person ?email
-WHERE {
-  ?person foaf:mbox ?email .
-  FILTER regex(?email, "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")
-}
-
-```
 
 **Level**: 8 (0 points)
 
